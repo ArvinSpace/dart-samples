@@ -15,12 +15,14 @@ String getLibraryFilePath(String directory, String filename) {
   var currentDirectory = Directory.current.path;
 
   // Windows doesn't use
-  if (!Platform.isWindows) filename = 'lib$filename';
+  // if (!Platform.isWindows) filename = 'lib$filename';
+  filename = 'lib$filename';
 
   // Get the path to the library file
   var libraryPath = path.join(currentDirectory, directory, filename);
   if (Platform.isWindows) {
-    libraryPath = path.join(currentDirectory, directory, 'Debug', filename);
+    // libraryPath = path.join(currentDirectory, directory, 'Debug', filename);
+    libraryPath = path.join(currentDirectory, 'build', directory, filename);
   }
 
   // Add extension
