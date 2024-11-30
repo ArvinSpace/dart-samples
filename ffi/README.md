@@ -13,9 +13,9 @@ Each sample uses [CMake][cmake] to generate a Makefile. To build the native
 library for each sample:
 
 ```bash
-cd hello_world/hello_library
-cmake .
-make
+cd hello_world
+cmake -S .\hello_library -B .\build\hello_library -G "Unix Makefiles"
+make -C .\build\hello_library
 ```
 
 The `make` command creates a `libhello.dylib` (macOS), `libhello.dll`
@@ -27,7 +27,7 @@ Once the native library is built, run:
 
 ```bash
 dart pub get
-dart run <filename>.dart
+dart run hello.dart
 ```
 
 ## macOS code signing

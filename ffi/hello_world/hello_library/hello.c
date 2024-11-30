@@ -18,4 +18,5 @@ int main()
 void hello_world()
 {
     printf("Hello World\n");
+    puts("hello Dart  yeah oh");
 }

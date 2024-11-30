@@ -13,6 +13,7 @@ typedef HelloWorldFunc = ffi.Void Function();
 typedef HelloWorld = void Function();
 
 void main() {
+  print('Platform.isWindows====================${Platform.isWindows}');
   // Open the dynamic library
   var libraryPath =
       path.join(Directory.current.path, 'hello_library', 'libhello.so');
@@ -24,8 +25,9 @@ void main() {
 
   if (Platform.isWindows) {
     libraryPath = path.join(
-        Directory.current.path, 'hello_library', 'Debug', 'hello.dll');
+        Directory.current.path, 'build', 'hello_library', 'libhello.dll');
   }
+  print('libraryPath====================$libraryPath');
 
   final dylib = ffi.DynamicLibrary.open(libraryPath);
 
