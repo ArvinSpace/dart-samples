@@ -27,7 +27,7 @@ Once the native library is built, run:
 
 ```bash
 dart pub get
-dart run hello.dart
+dart run <filename>.dart
 ```
 
 ## macOS code signing
