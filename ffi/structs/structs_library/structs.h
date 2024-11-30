@@ -21,3 +21,5 @@ double distance(struct Coordinate, struct Coordinate);
 
 char *hello_world();
 char *reverse(char *str, int length);
+
+void free_string(char *str);

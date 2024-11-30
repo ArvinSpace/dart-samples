@@ -7,6 +7,7 @@ import 'dart:io' show Directory, Platform;
 
 import 'package:ffi/ffi.dart';
 import 'package:path/path.dart' as path;
+import 'package:test_utils/test_utils.dart';
 
 // Example of handling a simple C struct
 final class Coordinate extends Struct {
@@ -62,9 +63,10 @@ void main() {
   }
   if (Platform.isWindows) {
     libraryPath = path.join(
-        Directory.current.path, 'structs_library', 'Debug', 'structs.dll');
+        Directory.current.path, 'build', 'structs_library', 'libstructs.dll');
   }
-  final dylib = DynamicLibrary.open(libraryPath);
+  // final dylib = DynamicLibrary.open(libraryPath);
+  final dylib = getLibrary('structs_library', 'structs');
 
   final helloWorld =
       dylib.lookupFunction<HelloWorld, HelloWorld>('hello_world');
