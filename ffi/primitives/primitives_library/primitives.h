@@ -5,3 +5,4 @@
 int sum(int a, int b);
 int subtract(int *a, int b);
 int *multiply(int a, int b);
+void free_pointer(int *int_pointer);

@@ -7,6 +7,7 @@ import 'dart:io';
 
 import 'package:ffi/ffi.dart';
 import 'package:path/path.dart' as path;
+import 'package:test_utils/test_utils.dart';
 
 // C sum function - int sum(int a, int b);
 //
@@ -43,10 +44,11 @@ void main() {
   }
   if (Platform.isWindows) {
     libraryPath = path.join(
-        Directory.current.path, 'primitives_library', 'Debug', 'primtives.dll');
+        Directory.current.path, 'build', 'primitives_library', 'libprimitives.dll');
   }
 
-  final dylib = DynamicLibrary.open(libraryPath);
+  // final dylib = DynamicLibrary.open(libraryPath);
+  final dylib = getLibrary('primitives_library', 'primitives');
 
   // calls int sum(int a, int b);
   final sumPointer = dylib.lookup<NativeFunction<SumFunc>>('sum');
